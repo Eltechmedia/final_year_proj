@@ -1,0 +1,65 @@
+$col-dis: #b3ccea;
+$col-gray-1: #f0f0f0;
+$col-gray-2: hsl(0, 0%, 45%);
+$col-white: #fff;
+$col-white-1: #f7f7f7;
+$weight-1: 400;
+$weight-2: 600;
+$weight-3: 700;
+
+$col-black: #001e3d;
+$black: #000;
+$col-pri: #001e3d;
+
+$col-gray-bg: #f2f2f2;
+$col-gray-light: #a8a8a8;
+$col-gray-dark: #808080;
+
+$col-gray-btn-d: hsl(0, 0%, 47%);
+$col-gray-btn-l: #dbdbdb;
+
+$col-bord-1: hsl(0, 0%, 86%);
+$col-bord-2: #e5e5e5;
+$col-bord-3: #f4f1f1;
+$col-gray-svg: #b0b0b0;
+
+$col-blue: #0069cc;
+$col-blue-light: hsl(217, 57%, 96%);
+$col-blue-light-1: #ebf1fa;
+$col-red: #e30011;
+$col-red-btn: #cd5542;
+$col-yell: #e3c204;
+$col-or: #ff8b41;
+$col-green: hsl(149, 100%, 40%);
+$col-green-dark: hsl(136, 54%, 34%);
+
+$col-blue-dark: #2767ce;
+$col-pri-dark: #395185;
+$col-blue-light: hsl(211, 64%, 96%);
+$shadow: rgba(197, 192, 249, 0.2);
+$shadow-1: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+
+//$col-red: hsl(0, 100%, 69%);
+$border-rad: 5px;
+$border-rad-1: 100px;
+
+$transition: 0.15s cubic-bezier(1, 0, 0, 1);
+
+@mixin center-abs {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin center-flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin respond_min($device) {
+	@media (min-width: #{$device /16 }em) {
+		@content;
+	}
+}

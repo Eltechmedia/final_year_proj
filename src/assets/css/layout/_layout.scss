@@ -1,0 +1,37 @@
+.container{
+    max-width: 1140px;
+    margin: auto;
+}
+
+.grid_1_max{
+    display: grid;
+    grid-template-columns: 1fr max-content;
+}
+
+.con_1_1 {
+    display: grid;
+    --gap: 4rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap);
+}
+.con_1_1_1 {
+    --width: 28.5rem;
+    --gap: 4%;
+    grid-template-columns: repeat(auto-fit, minmax(var(--width), 1fr));
+    gap: var(--gap);
+    display: grid;
+}
+$gaps: .7rem 1.5rem 2.4rem 3.2rem;
+
+@for $var from 1 to 5 {
+    .grid_txt_#{$var} {
+        display: grid;
+        grid-row-gap: nth($gaps, $var );
+    }
+}
+.div_41 {
+    --width:23rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--width),1fr ));
+    gap: 1.5rem;
+}

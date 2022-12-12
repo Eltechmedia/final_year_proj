@@ -4,6 +4,7 @@ Variables
 ===============
 */
 
+
 :root {
   /* dark shades of primary color*/
   --clr-primary-1: hsl(22, 28%, 21%);
@@ -70,6 +71,7 @@ ul {
 }
 a {
   text-decoration: none;
+  display: inline-block;
 }
 hr {
   border: none;
@@ -103,6 +105,9 @@ h5 {
 p {
   margin-bottom: 1.25rem;
   color: var(--clr-grey-3);
+}
+.h_sm{
+  font-size: 14px;
 }
 @media screen and (min-width: 800px) {
   h1 {

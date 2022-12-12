@@ -1,0 +1,263 @@
+.form {
+
+    &_grid_2 {
+        display: grid;
+        --width: 25rem;
+        --gap: 5rem;
+        grid-template-columns: repeat(auto-fit, minmax(var(--width), 1fr));
+        row-gap: 2.5rem;
+        column-gap: var(--gap);
+        &.no_stretch{
+            grid-template-columns: repeat(2, minmax(var(--width), auto)); 
+        }
+    }
+    &_half {
+        width: 60%;
+    }
+    &_heading {
+        font-size: 1.8rem;
+        text-transform: capitalize;
+        font-weight: $weight-2;
+        color: $col-black;
+    }
+    &_pkg {
+        display: grid;
+        gap: 2rem;
+        margin-top: 2rem;
+
+        .form_label {
+            font-weight: 400;
+        }
+
+        &_con {
+            padding: 2.5rem;
+        }
+    }
+    &_2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, max-content);
+        align-content: center;
+        align-items: start;
+        column-gap: 2rem;
+    }
+
+    &_group {
+        display: grid;
+        column-gap: 0.5rem;
+        & > div.no_addon {
+            &::before {
+                display: none;
+            }
+        }
+        & > div {
+            &::before {
+                content: attr(data-addon);
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                bottom: 0;
+                padding: 0 2ch;
+            }
+        }
+
+        &.error {
+            .form_input {
+                border: 2px solid hsl(0, 100%, 89%);
+            }
+        }
+    }
+    &_label {
+        margin-bottom: 0.7rem;
+        font-size: 1.2rem;
+        color: hsl(0, 0%, 23%);
+    }
+    &_input {
+        &_pack {
+            .form_input {
+                overflow: hidden;
+                &,
+                &.error {
+                    border-radius: $border-rad 0 0 $border-rad;
+                    border-right: none;
+                }
+            }
+        }
+        &_badge {
+            background-color: $col-gray-btn-l;
+            color: $col-pri;
+            &.error {
+                background-color: rgba(red, 0.6);
+                color: $col-white-1;
+            }
+        }
+        &_support {
+            border-radius: 0 $border-rad $border-rad 0;
+            transition: 0.04s cubic-bezier(0.19, 1, 0.22, 1);
+            border: 1px solid $col-gray-btn-l;
+
+            &.error {
+                border: 2px solid hsl(0, 100%, 89%);
+                border-left: none;
+                &,
+                & > *,
+                & svg {
+                    stroke: rgba(red, 0.4);
+                    color: red;
+                }
+            }
+        }
+        &_support,
+        &_badge {
+            padding: 0 9px;
+            border-radius: 0 $border-rad $border-rad 0;
+        }
+        &:focus + &_badge {
+            background-color: var(--clr-primary-5);
+            color: $col-white-1;
+        }
+        &:focus + &_support {
+            border: 1px solid var(--clr-primary-5);
+        }
+        &:focus + &_support.error {
+            border: 2px solid hsl(0, 100%, 89%);
+        }
+    }
+    &_input_single,
+    &_input {
+        padding: 1rem .7rem;
+        resize: none;
+        font-size: .8rem;
+        font-family: inherit;
+
+        transition: 0.04s cubic-bezier(0.19, 1, 0.22, 1);
+        border: 1px solid $col-gray-btn-l;
+        &::placeholder {
+            color: darken($col-gray-btn-l, 7%);
+        }
+        &:focus {
+            border: 1px solid green;
+        }
+        &:disabled
+        {
+            cursor: not-allowed;
+        }
+        & .error {
+            color: red;
+            font-size: 1.2rem;
+            font-weight: $weight-1;
+        }
+
+        &.error {
+            label {
+                &::before {
+                    color: red;
+                }
+            }
+            .form_input {
+                border-color: rgba(red, 0.4);
+                background: rgba(red, 0);
+            }
+        }
+    }
+
+    &_input_single {
+        padding: 1.5rem 1rem;
+        font-size: 2rem;
+        color: $col-black;
+
+        &::placeholder {
+            color: $col-bord-1;
+        }
+        &.error {
+            background: #fff;
+            border: 1px solid rgba(#f00, 1);
+        }
+    }
+}
+
+.checkbox {
+    input[type="checkbox"]:checked {
+        & ~ .checkbox_display {
+            border: 2px solid $col-blue;
+
+            &::before {
+                background-color: $col-blue;
+            }
+        }
+    }
+    &_display {
+        &::before {
+            content: "";
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+        }
+    }
+}
+.upload_form {
+    .react-tel-input .form-control {
+        width: 100% !important;
+    }
+}
+
+
+
+
+.form_product {
+    align-items: start;
+}
+
+
+
+.order_filter_form {
+    top: 110%;
+    left: 0;
+    z-index: 3;
+    width: 40rem;
+    transform: translateX(-30%);
+    position: absolute;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 20px;
+        height: 20px;
+        border: 1px solid $col-bord-1;
+        border-bottom: none;
+        border-left: none;
+        background-color: inherit;
+
+        top: 0;
+        left: 50%;
+        transform: translate(0, -50%) rotate(-45deg);
+    }
+}
+
+
+// REACT_SELECT
+.form_input__control {
+    @extend .form_input;
+    min-height: inherit !important;
+    padding: 0.5rem 1.4rem;
+    border-width: 1px !important;
+
+    &:focus {
+        // @extend .form_input:focus;
+        // border: 1px solid $col-blue;
+        box-shadow: none;
+    }
+    &:hover {
+        border: 1px solid $col-gray-btn-l;
+    }
+}
+.form_input__indicator-separator {
+    display: none !important;
+}
+.form_input__single-value {
+    font-size: 1.6rem;
+}
+.form_input__dropdown-indicator {
+    transform: scale(1.5);
+}

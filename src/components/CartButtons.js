@@ -12,18 +12,18 @@ const CartButtons = () => {
 	const { loginWithRedirect, logout, myUser } = useUserContext();
 
 	return (
-		<Wrapper className="cart-btn-wrapper">
-			<Link to="/cart" className="cart-btn" onClick={closeSidebar}>
+		<Wrapper className='cart-btn-wrapper gap-25'>
+			<Link to='/cart' className='cart-btn' onClick={closeSidebar}>
 				Cart
-				<span className="cart-container">
+				<span className='cart-container'>
 					<FaShoppingCart />
-					<span className="cart-value">{total_items}</span>
+					<span className='cart-value'>{total_items}</span>
 				</span>
 			</Link>
 			{myUser ? (
 				<button
-					className="auth-btn"
-					type="button"
+					className='auth-btn'
+					type='button'
 					onClick={() => {
 						clearCart();
 						logout({ returnTo: window.location.origin });
@@ -33,23 +33,23 @@ const CartButtons = () => {
 					<FaUserMinus />
 				</button>
 			) : (
-				<button
-					className="auth-btn"
-					type="button"
-					onClick={loginWithRedirect}
-				>
-					Login
-					<FaUserPlus />
-				</button>
+				<>
+					<Link className='auth-btn' type='button' onClick={loginWithRedirect}>
+						Login
+						<FaUserPlus />
+					</Link>
+					<Link to={"/signup"} className='btn'>
+						signup
+					</Link>
+				</>
 			)}
 		</Wrapper>
 	);
 };
 
 const Wrapper = styled.div`
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	align-items: center;
+	display: flex;
+
 	width: 225px;
 	.cart-btn {
 		color: var(--clr-grey-1);

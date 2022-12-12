@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import "./assets/css/main.css";
 import App from "./App";
 import { ProductsProvider } from "./context/products_context";
 import { FilterProvider } from "./context/filter_context";
@@ -12,7 +13,7 @@ ReactDOM.render(
 		domain={process.env.REACT_APP_AUTH0_DOMAIN}
 		clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
 		redirectUri={window.location.origin}
-		cacheLocation="localstorage"
+		cacheLocation='localstorage'
 	>
 		<UserProvider>
 			<ProductsProvider>
@@ -24,5 +25,5 @@ ReactDOM.render(
 			</ProductsProvider>
 		</UserProvider>
 	</Auth0Provider>,
-	document.getElementById("root")
+	document.getElementById("root"),
 );
